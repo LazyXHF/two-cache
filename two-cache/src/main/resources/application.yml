@@ -1,0 +1,33 @@
+###端口号配置
+server:
+  port: 8081
+###数据库配置
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.43.110:3306/demo_test
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    test-while-idle: true
+    test-on-borrow: true
+    validation-query: SELECT 1 FROM DUAL
+    time-between-eviction-runs-millis: 300000
+    min-evictable-idle-time-millis: 1800000
+  redis:
+    database: 0
+    host: 192.168.43.110
+    port: 6379
+    password: 123
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+    timeout: 10000
+  # 缓存配置读取
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:ehcache.xml
+
